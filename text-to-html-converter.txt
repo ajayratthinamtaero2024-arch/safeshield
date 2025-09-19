@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Codebeautify.org Text to HTML Converter</title>
+	</head>
+	<body>
+		<p>
+			<!DOCTYPE html>
+			<html lang="en">
+				<head>
+					<meta charset="UTF-8">
+						<meta name="viewport" content="width=device-width, initial-scale=1.0">
+							<title>Safe Shield - Water Quality Dashboard</title>
+							<script src="https://cdn.tailwindcss.com"></script>
+							<style>
+ 
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+ 
+        body {
+ 
+            font-family: 'Inter', sans-serif;
+ 
+            background-color: #f3f4f6;
+ 
+        }
+ 
+    </style>
+						</head>
+						<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+							<div class="w-full max-w-4xl bg-white rounded-2xl shadow-xl p-8 transform transition-all duration-300">
+								<!-- Dashboard Header -->
+								<div class="text-center mb-8">
+									<h1 class="text-3xl md:text-4xl font-extrabold text-gray-800">
+ 
+                Safe Shield
+ 
+            </h1>
+									<p class="text-lg text-gray-500 mt-2">
+ 
+                Real-time Water Quality Monitoring
+ 
+            </p>
+								</div>
+								<!-- Main Status Card -->
+								<div id="status-card" class="bg-green-100 border-l-4 border-green-500 text-green-800 p-6 rounded-xl mb-8 flex items-center justify-between transition-colors duration-500">
+									<div class="flex items-center space-x-4">
+										<svg id="status-icon" class="w-12 h-12 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+											<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+										</svg>
+										<div class="flex-grow">
+											<h2 id="status-text" class="text-xl md:text-2xl font-bold">Water Quality is SAFE</h2>
+											<p class="text-sm md:text-base font-medium mt-1">Last Updated: 
+												<span id="last-updated">--:--:--</span>
+											</p>
+										</div>
+									</div>
+									<div class="text-right">
+										<span id="location-text" class="text-xl md:text-2xl font-bold text-green-600">Site 1</span>
+										<p class="text-xs md:text-sm font-medium mt-1">Northeast India</p>
+									</div>
+								</div>
+								<!-- Metric Cards Grid -->
+								<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+									<!-- pH Card -->
+									<div class="bg-white rounded-xl shadow-md p-6 flex items-center justify-between border border-gray-200">
+										<div>
+											<h3 class="text-xl font-semibold text-gray-700">pH Level</h3>
+											<p id="ph-value" class="text-3xl font-bold text-gray-900 mt-2">--</p>
+										</div>
+										<div class="bg-blue-100 p-3 rounded-full">
+											<svg class="w-8 h-8 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+												<path d="M10 2a8 8 0 100 16 8 8 0 000-16zM5 8a1 1 0 112 0 1 1 0 01-2 0zm3 1a1 1 0 100 2 1 1 0 000-2zm4-1a1 1 0 11-2 0 1 1 0 012 0zm3 1a1 1 0 100 2 1 1 0 000-2zm-8 4a1 1 0 100 2 1 1 0 000-2zm4 0a1 1 0 100 2 1 1 0 000-2zm4 0a1 1 0 100 2 1 1 0 000-2z" />
+											</svg>
+										</div>
+									</div>
+									<!-- Turbidity Card -->
+									<div class="bg-white rounded-xl shadow-md p-6 flex items-center justify-between border border-gray-200">
+										<div>
+											<h3 class="text-xl font-semibold text-gray-700">Turbidity (NTU)</h3>
+											<p id="turbidity-value" class="text-3xl font-bold text-gray-900 mt-2">--</p>
+										</div>
+										<div class="bg-yellow-100 p-3 rounded-full">
+											<svg class="w-8 h-8 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+												<path d="M5.5 13.5l2-2a2 2 0 012.828 0l.828.828a2 2 0 002.828 0l2-2a2 2 0 000-2.828l-2-2a2 2 0 00-2.828 0l-.828-.828a2 2 0 00-2.828 0l-2 2a2 2 0 000 2.828zM10 16a6 6 0 100-12 6 6 0 000 12z" />
+											</svg>
+										</div>
+									</div>
+									<!-- Temperature Card -->
+									<div class="bg-white rounded-xl shadow-md p-6 flex items-center justify-between border border-gray-200">
+										<div>
+											<h3 class="text-xl font-semibold text-gray-700">Temperature (°C)</h3>
+											<p id="temp-value" class="text-3xl font-bold text-gray-900 mt-2">--</p>
+										</div>
+										<div class="bg-red-100 p-3 rounded-full">
+											<svg class="w-8 h-8 text-red-500" fill="currentColor" viewBox="0 0 20 20">
+												<path fill-rule="evenodd" d="M10 2a8 8 0 100 16 8 8 0 000-16zm-1.5 8a1.5 1.5 0 113 0v4.5a1.5 1.5 0 11-3 0V10z" clip-rule="evenodd"></path>
+											</svg>
+										</div>
+									</div>
+									<!-- Bacteria Card (Simulated) -->
+									<div class="bg-white rounded-xl shadow-md p-6 flex items-center justify-between border border-gray-200">
+										<div>
+											<h3 class="text-xl font-semibold text-gray-700">Microbial Count</h3>
+											<p id="bacteria-value" class="text-3xl font-bold text-gray-900 mt-2">--</p>
+										</div>
+										<div class="bg-purple-100 p-3 rounded-full">
+											<svg class="w-8 h-8 text-purple-500" fill="currentColor" viewBox="0 0 20 20">
+												<path d="M10 2a8 8 0 100 16 8 8 0 000-16zM7.5 7.5a.5.5 0 011 0v.5a.5.5 0 01-1 0v-.5zM12 7.5a.5.5 0 011 0v.5a.5.5 0 01-1 0v-.5zM7.5 12a.5.5 0 011 0v.5a.5.5 0 01-1 0v-.5zM12 12a.5.5 0 011 0v.5a.5.5 0 01-1 0v-.5z" />
+											</svg>
+										</div>
+									</div>
+								</div>
+							</div>
+							<script>
+ 
+        // Get all the DOM elements we need to update
+ 
+        const statusCard = document.getElementById('status-card');
+ 
+        const statusIcon = document.getElementById('status-icon');
+ 
+        const statusText = document.getElementById('status-text');
+ 
+        const lastUpdated = document.getElementById('last-updated');
+ 
+        const phValue = document.getElementById('ph-value');
+ 
+        const turbidityValue = document.getElementById('turbidity-value');
+ 
+        const tempValue = document.getElementById('temp-value');
+ 
+        const bacteriaValue = document.getElementById('bacteria-value');
+ 
+
+ 
+        // This function simulates receiving new sensor data from the backend
+ 
+        function fetchAndDisplayData() {
+ 
+            // In a real application, you would make a fetch request here:
+ 
+            // fetch('/api/get-realtime-data')
+ 
+            // .then(response => response.json())
+ 
+            // .then(data => { ... update UI with data ... });
+ 
+
+ 
+            // For this simulation, we'll generate random data
+ 
+            const ph = (Math.random() * (8.5 - 6.5) + 6.5).toFixed(2);
+ 
+            const turbidity = (Math.random() * (50 - 1) + 1).toFixed(2);
+ 
+            const temp = (Math.random() * (30 - 15) + 15).toFixed(2);
+ 
+            const bacteria = Math.floor(Math.random() * 200);
+ 
+
+ 
+            // Update the UI with the new values
+ 
+            phValue.textContent = ph;
+ 
+            turbidityValue.textContent = turbidity;
+ 
+            tempValue.textContent = temp;
+ 
+            bacteriaValue.textContent = bacteria;
+ 
+            lastUpdated.textContent = new Date().toLocaleTimeString();
+ 
+
+ 
+            // Check for contamination based on a simple threshold
+ 
+            const isContaminated = (turbidity > 25 || bacteria > 100);
+ 
+
+ 
+            if (isContaminated) {
+ 
+                // Change UI to reflect danger state
+ 
+                statusCard.classList.remove('bg-green-100', 'border-green-500', 'text-green-800');
+ 
+                statusCard.classList.add('bg-red-100', 'border-red-500', 'text-red-800', 'animate-pulse');
+ 
+                
+ 
+                statusIcon.innerHTML = `
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path>`;
+ 
+                
+ 
+                statusText.textContent = 'Water Quality is UNSAFE! Please take caution.';
+ 
+
+ 
+            } else {
+ 
+                // Reset UI to safe state
+ 
+                statusCard.classList.remove('bg-red-100', 'border-red-500', 'text-red-800', 'animate-pulse');
+ 
+                statusCard.classList.add('bg-green-100', 'border-green-500', 'text-green-800');
+ 
+
+ 
+                statusIcon.innerHTML = `
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>`;
+ 
+
+ 
+                statusText.textContent = 'Water Quality is SAFE';
+ 
+            }
+ 
+        }
+ 
+
+ 
+        // Run the function once on load and then every 3 seconds
+ 
+        document.addEventListener('DOMContentLoaded', () => {
+ 
+            fetchAndDisplayData();
+ 
+            setInterval(fetchAndDisplayData, 3000);
+ 
+        });
+ 
+
+ 
+    
+							</script>
+						</body>
+					</html>
+				</p>
+			</body>
+		</html>
